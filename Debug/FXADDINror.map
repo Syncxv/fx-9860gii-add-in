@@ -1,0 +1,372 @@
+Hitachi Optimizing Linkage Editor (Ver. 7.1.03.000)09-Oct-2021 18:46:29
+
+*** Options ***
+
+-subcommand=C:\Users\USER\AppData\Local\Temp\hmk75BD.tmp
+noprelink
+sdebug
+rom D=R
+nomessage
+list "C:\Users\USER\Documents\CASIO\fx-9860G SDK\test\Debug\FXADDINror.map"
+show symbol
+nooptimize
+start P_TOP,P,C,D,C$VTBL,C$INIT/0300200,B_BR_Size,B,R/08100000
+fsymbol P
+nologo
+input "C:\Users\USER\Documents\CASIO\fx-9860G SDK\test\Debug\test.obj" "C:\Users\USER\Documents\CASIO\fx-9860G SDK\test\Debug\MonochromeLib.obj" "C:\Users\USER\Documents\CASIO\fx-9860G SDK\test\Debug\syscall.obj"
+input "D:\CASIO SDK\OS\FX\lib\setup.obj"
+library "D:\CASIO SDK\OS\FX\lib\fx9860G_library.lib"
+output "C:\Users\USER\Documents\CASIO\fx-9860G SDK\test\Debug\FXADDINror.abs"
+-nomessage=1100
+end
+
+*** Error information ***
+
+*** Mapping List ***
+
+SECTION                            START      END         SIZE   ALIGN
+
+P_TOP
+                                  00300200  0030020b         c   4
+P
+                                  0030020c  003015cb      13c0   4
+C
+                                  003015cc  0030175b       190   4
+D
+                                  0030175c  00301773        18   4
+B_BR_Size
+                                  08100000  08100003         4   4
+B
+                                  08100004  08100007         4   4
+R
+                                  08100008  0810001f        18   4
+
+*** Symbol List ***
+
+SECTION=
+FILE=                               START        END    SIZE
+  SYMBOL                            ADDR        SIZE    INFO      COUNTS  OPT
+
+SECTION=P_TOP
+FILE=C:\Users\USER\Documents\CASIO\fx-9860G SDK\test\Debug\test.obj
+                                  00300200  0030020b         c
+  _InitializeSystem
+                                  00300200         c   func ,g         * 
+
+SECTION=P
+FILE=C:\Users\USER\Documents\CASIO\fx-9860G SDK\test\Debug\test.obj
+                                  0030020c  00300297        8c
+  _AddIn_main
+                                  0030020c        8c   func ,g         * 
+FILE=C:\Users\USER\Documents\CASIO\fx-9860G SDK\test\Debug\MonochromeLib.obj
+                                  00300298  00300d57       ac0
+  _ML_vram_adress
+                                  00300298        1c   func ,g         * 
+  _ML_clear_vram
+                                  003002b4        5c   func ,g         * 
+  _ML_display_vram
+                                  00300310        4a   func ,g         * 
+  _ML_pixel
+                                  0030035a        a0   func ,g         * 
+  _ML_line
+                                  003003fa        d6   func ,g         * 
+  _ML_horizontal_line
+                                  003004d0       2a6   func ,g         * 
+  _ML_vertical_scroll
+                                  00300776        8e   func ,g         * 
+  _ML_bmp_or_cl
+                                  00300804       246   func ,g         * 
+  _ML_bmp_and_cl
+                                  00300a4a       254   func ,g         * 
+  _ML_bmp_8_or
+                                  00300c9e        ba   func ,g         * 
+FILE=C:\Users\USER\Documents\CASIO\fx-9860G SDK\test\Debug\syscall.obj
+                                  00300d58  00300d67        10
+  _GlibGetOSVersionInfo
+                                  00300d58         0   none ,g         * 
+FILE=D:\CASIO SDK\OS\FX\lib\setup.obj
+                                  00300d68  00300e83       11c
+  ___LINK_PROTECT
+                                  00300d68         4   func ,g         * 
+  _SetQuitHandler
+                                  00300d6c         6   func ,g         * 
+  _OnAppCloseDefault
+                                  00300d72        54   func ,g         * 
+  __INITSCT_ADDIN
+                                  00300dc6        48   func ,g         * 
+  _INIT_ADDIN_APPLICATION
+                                  00300e0e        76   func ,g         * 
+FILE=abs
+                                  00300e84  00300e91         e
+  _abs
+                                  00300e84         e   func ,g         * 
+FILE=_Bdel_cychdr
+                                  00300e94  00300ea3        10
+  _Bdel_cychdr
+                                  00300e94         0   none ,g         * 
+FILE=_Bdisp_AllClr_DDVRAM
+                                  00300ea4  00300eb3        10
+  _Bdisp_AllClr_DDVRAM
+                                  00300ea4         0   none ,g         * 
+FILE=_BfileFLS_CloseFile
+                                  00300eb4  00300ec3        10
+  _BfileFLS_CloseFile
+                                  00300eb4         0   none ,g         * 
+FILE=_Bkey_Set_RepeatTime_Default
+                                  00300ec4  00300ed3        10
+  _Bkey_Set_RepeatTime_Default
+                                  00300ec4         0   none ,g         * 
+FILE=_CallbackAtQuitMainFunction
+                                  00300ed4  00300ee3        10
+  _CallbackAtQuitMainFunction
+                                  00300ed4         0   none ,g         * 
+FILE=_flsFindClose
+                                  00300ee4  00300ef3        10
+  _flsFindClose
+                                  00300ee4         0   none ,g         * 
+FILE=_getkey
+                                  00300ef4  00300f03        10
+  _GetKey
+                                  00300ef4         0   none ,g         * 
+FILE=_GLibAddinAplExecutionCheck
+                                  00300f04  00300f13        10
+  _GLibAddinAplExecutionCheck
+                                  00300f04         0   none ,g         * 
+FILE=_Hmem_SetMMU
+                                  00300f14  00300f23        10
+  _Hmem_SetMMU
+                                  00300f14         0   none ,g         * 
+FILE=_PrintXY
+                                  00300f24  00300f33        10
+  _PrintXY
+                                  00300f24         0   none ,g         * 
+FILE=keybios
+                                  00300f34  00301277       344
+  _GetKeyWait
+                                  00300f34        40   func ,g         * 
+  _Bkey_GetKeyTableInfo
+                                  00300f74        5c   func ,g         * 
+  _KeyCodeConvert
+                                  00300fd0        78   func ,g         * 
+  _END$270
+                                  0030100e         0   none ,l         * 
+  __Delay
+                                  00301048        88   func ,g         * 
+  _Hkey_Check_Key_SDK
+                                  003010d0       12c   func ,g         * 
+  _IsKeyDown
+                                  003011fc        30   func ,g         * 
+  _IsKeyUp
+                                  0030122c        4c   func ,g         * 
+FILE=timer
+                                  00301278  00301377       100
+  _GetSDKLibraryVersion
+                                  00301278         6   func ,g         * 
+  _SetTimer
+                                  0030127e        54   func ,g         * 
+  _KillTimer
+                                  003012d2        44   func ,g         * 
+  _Sleep
+                                  00301316        62   func ,g         * 
+FILE=__divls
+                                  00301378  0030142b        b4
+  __divls
+                                  00301378         0   none ,g         * 
+  divls_zero
+                                  00301416         0   none ,l         * 
+  A_errno
+                                  00301424         0   none ,l         * 
+  n_zerono
+                                  00301428         0   none ,l         * 
+FILE=__modls
+                                  0030142c  003014f3        c8
+  __modls
+                                  0030142c         0   none ,g         * 
+  modls_L
+                                  003014d2         0   none ,l         * 
+  modls_zero
+                                  003014de         0   none ,l         * 
+  A_errno
+                                  003014ec         0   none ,l         * 
+  n_zerono
+                                  003014f0         0   none ,l         * 
+FILE=__s_mvn
+                                  003014f4  0030152b        38
+  __slow_mvn
+                                  003014f4         0   none ,g         * 
+  SMVN_B
+                                  00301502         0   none ,l         * 
+  SMVN_END
+                                  00301524         0   none ,l         * 
+FILE=_Bcre_cychdr
+                                  0030152c  0030153b        10
+  _Bcre_cychdr
+                                  0030152c         0   none ,g         * 
+FILE=_Bkey_GetKeyTableInfoJumpFunc
+                                  0030153c  0030154b        10
+  _Bkey_GetKeyTableInfoJumpFunc
+                                  0030153c         0   none ,g         * 
+FILE=_Bkey_GetKeyWait
+                                  0030154c  0030155b        10
+  _Bkey_GetKeyWait
+                                  0030154c         0   none ,g         * 
+FILE=_BSrl_DummyWAIT
+                                  0030155c  0030156b        10
+  _BSrl_DummyWAIT
+                                  0030155c         0   none ,g         * 
+FILE=_Bsta_cychdr
+                                  0030156c  0030157b        10
+  _Bsta_cychdr
+                                  0030156c         0   none ,g         * 
+FILE=_Bstp_cychdr
+                                  0030157c  0030158b        10
+  _Bstp_cychdr
+                                  0030157c         0   none ,g         * 
+FILE=_Chattering
+                                  0030158c  0030159b        10
+  _Chattering
+                                  0030158c         0   none ,g         * 
+FILE=_GLibGetAddinLibInfo
+                                  0030159c  003015ab        10
+  _GLibGetAddinLibInfo
+                                  0030159c         0   none ,g         * 
+FILE=_GLibGetOSVersionInfo
+                                  003015ac  003015bb        10
+  _GLibGetOSVersionInfo
+                                  003015ac         0   none ,g         * 
+FILE=_SetIntFlagPaturn
+                                  003015bc  003015cb        10
+  _SetIntFlagPaturn
+                                  003015bc         0   none ,g         * 
+
+SECTION=C
+FILE=addin_sct
+                                  003015e0  003015f3        14
+  _B_BGN
+                                  003015e0         0   none ,g         * 
+  _B_END
+                                  003015e4         0   none ,g         * 
+  _R_BGN
+                                  003015e8         0   none ,g         * 
+  _R_END
+                                  003015ec         0   none ,g         * 
+  _D_ROM
+                                  003015f0         0   none ,g         * 
+FILE=keybios
+                                  003015f4  0030175b       168
+  _gb_KeyCodeTable
+                                  003015f4       150   data ,l         * 
+  _gb_usKoState
+                                  00301744        18   data ,l         * 
+
+SECTION=B_BR_Size
+FILE=C:\Users\USER\Documents\CASIO\fx-9860G SDK\test\Debug\test.obj
+                                  08100000  08100003         4
+  _BR_Size
+                                  08100000         4   data ,g         * 
+
+SECTION=B
+FILE=_errno
+                                  08100004  08100007         4
+  __errno
+                                  08100004         4   data ,g         * 
+
+SECTION=R
+FILE=C:\Users\USER\Documents\CASIO\fx-9860G SDK\test\Debug\MonochromeLib.obj
+                                  08100008  08100017        10
+  _SysCallCode
+                                  08100008         c   data ,l         * 
+  _SysCall
+                                  08100014         4   data ,l         * 
+FILE=D:\CASIO SDK\OS\FX\lib\setup.obj
+                                  08100018  0810001b         4
+  _gb_OnAppClose
+                                  08100018         4   data ,g         * 
+FILE=keybios
+                                  0810001c  0810001f         4
+  _gb_pKeyMatrix
+                                  0810001c         4   data ,g         * 
+
+Absolute value symbols
+FILE=_Bdel_cychdr
+  __JumpTableTOP
+                                  80010070         0   none ,l         * 
+FILE=_Bdisp_AllClr_DDVRAM
+  __JumpTableTOP
+                                  80010070         0   none ,l         * 
+FILE=_BfileFLS_CloseFile
+  __JumpTableTOP
+                                  80010070         0   none ,l         * 
+FILE=_Bkey_Set_RepeatTime_Default
+  __JumpTableTOP
+                                  80010070         0   none ,l         * 
+FILE=_CallbackAtQuitMainFunction
+  __JumpTableTOP
+                                  80010070         0   none ,l         * 
+FILE=_flsFindClose
+  __JumpTableTOP
+                                  80010070         0   none ,l         * 
+FILE=_getkey
+  __JumpTableTOP
+                                  80010070         0   none ,l         * 
+FILE=_GLibAddinAplExecutionCheck
+  __JumpTableTOP
+                                  80010070         0   none ,l         * 
+FILE=_Hmem_SetMMU
+  __JumpTableTOP
+                                  80010070         0   none ,l         * 
+FILE=_PrintXY
+  __JumpTableTOP
+                                  80010070         0   none ,l         * 
+FILE=__divls
+  zerodiv
+                                  0000044e         0   none ,l         * 
+FILE=__modls
+  zerodiv
+                                  0000044e         0   none ,l         * 
+FILE=_Bcre_cychdr
+  __JumpTableTOP
+                                  80010070         0   none ,l         * 
+FILE=_Bkey_GetKeyTableInfoJumpFunc
+  __JumpTableTOP
+                                  80010070         0   none ,l         * 
+FILE=_Bkey_GetKeyWait
+  __JumpTableTOP
+                                  80010070         0   none ,l         * 
+FILE=_BSrl_DummyWAIT
+  __JumpTableTOP
+                                  80010070         0   none ,l         * 
+FILE=_Bsta_cychdr
+  __JumpTableTOP
+                                  80010070         0   none ,l         * 
+FILE=_Bstp_cychdr
+  __JumpTableTOP
+                                  80010070         0   none ,l         * 
+FILE=_Chattering
+  __JumpTableTOP
+                                  80010070         0   none ,l         * 
+FILE=_GLibGetAddinLibInfo
+  __JumpTableTOP
+                                  80010070         0   none ,l         * 
+FILE=_GLibGetOSVersionInfo
+  __JumpTableTOP
+                                  80010070         0   none ,l         * 
+FILE=_SetIntFlagPaturn
+  __JumpTableTOP
+                                  80010070         0   none ,l         * 
+
+*** Delete Symbols ***
+
+SYMBOL                                SIZE    INFO
+
+*** Variable Accessible with Abs8 ***
+
+SYMBOL                                SIZE    COUNTS  OPTIMIZE
+
+*** Variable Accessible with Abs16 ***
+
+SYMBOL                                SIZE    COUNTS  OPTIMIZE
+
+*** Function Call ***
+
+SYMBOL                              COUNTS  OPTIMIZE
