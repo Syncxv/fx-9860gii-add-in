@@ -45,13 +45,14 @@ int AddIn_main(int isAppli, unsigned short OptionNum)
             locate(1,3);
             Print((unsigned char*)"soh,cah,toa");
             locate(1,4);
-            Print((unsigned char*)"QUAD: ax^2+bx+c=0");
-            locate(1,5);
-            Print((unsigned char*)"QU:x=-b+-sqr(b^2-4ac)/2a");
-            locate(1,6);
-            Print((unsigned char*)"Vol Cylinder: PIr^2h");
-            locate(1,7);
-            Print((unsigned char*)"Area Parrelelorgram: bxh");
+            Print((unsigned char*)"QUADRATIC:");
+            locate(1, 6); Print((unsigned char*)"ax^2+bx+c=0");
+            locate(1,7); Print((unsigned char*)"x=-b+-sqr(b^2-4ac)/2a");
+            locate(1,8); Print((unsigned char*)"----------------");
+            locate(1,9); Print((unsigned char*)"Vol Cylinder: PIr^2h");
+            locate(1,10); Print((unsigned char*)"Area Parelelorgram: ");
+            locate(1, 11); Print((unsigned char*)"bxh");
+            locate(1,12); Print((unsigned char*)"----------------");
             // PrintXY(1,2,"soh,cah,toa;PIr^2", 1);
         }
         ML_display_vram();
@@ -74,21 +75,6 @@ int AddIn_main(int isAppli, unsigned short OptionNum)
 
     // return 1;
 }
-
-void thing(int type)
-{
-    switch (type)
-    {
-    case 0:
-        // formulas and sheet
-
-        break;
-    
-    default:
-        break;
-    }
-}
-
 
 //****************************************************************************
 //**************                                              ****************
