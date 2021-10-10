@@ -4,106 +4,120 @@
 ;SECTION NAME = P
  .export _AddIn_main
 _AddIn_main: .equ h'0030020c
+ .export _thing
+_thing: .equ h'003002ba
  .export _ML_vram_adress
-_ML_vram_adress: .equ h'00300298
+_ML_vram_adress: .equ h'00300304
  .export _ML_clear_vram
-_ML_clear_vram: .equ h'003002b4
+_ML_clear_vram: .equ h'00300320
  .export _ML_display_vram
-_ML_display_vram: .equ h'00300310
+_ML_display_vram: .equ h'0030037c
  .export _ML_pixel
-_ML_pixel: .equ h'0030035a
+_ML_pixel: .equ h'003003c6
  .export _ML_line
-_ML_line: .equ h'003003fa
+_ML_line: .equ h'00300466
  .export _ML_horizontal_line
-_ML_horizontal_line: .equ h'003004d0
+_ML_horizontal_line: .equ h'0030053c
  .export _ML_vertical_scroll
-_ML_vertical_scroll: .equ h'00300776
+_ML_vertical_scroll: .equ h'003007e2
  .export _ML_bmp_or_cl
-_ML_bmp_or_cl: .equ h'00300804
+_ML_bmp_or_cl: .equ h'00300870
  .export _ML_bmp_and_cl
-_ML_bmp_and_cl: .equ h'00300a4a
+_ML_bmp_and_cl: .equ h'00300ab6
  .export _ML_bmp_8_or
-_ML_bmp_8_or: .equ h'00300c9e
+_ML_bmp_8_or: .equ h'00300d0a
  .export _GlibGetOSVersionInfo
-_GlibGetOSVersionInfo: .equ h'00300d58
+_GlibGetOSVersionInfo: .equ h'00300dc4
  .export ___LINK_PROTECT
-___LINK_PROTECT: .equ h'00300d68
+___LINK_PROTECT: .equ h'00300dd4
  .export _SetQuitHandler
-_SetQuitHandler: .equ h'00300d6c
+_SetQuitHandler: .equ h'00300dd8
  .export _OnAppCloseDefault
-_OnAppCloseDefault: .equ h'00300d72
+_OnAppCloseDefault: .equ h'00300dde
  .export __INITSCT_ADDIN
-__INITSCT_ADDIN: .equ h'00300dc6
+__INITSCT_ADDIN: .equ h'00300e32
  .export _INIT_ADDIN_APPLICATION
-_INIT_ADDIN_APPLICATION: .equ h'00300e0e
+_INIT_ADDIN_APPLICATION: .equ h'00300e7a
  .export _abs
-_abs: .equ h'00300e84
+_abs: .equ h'00300ef0
  .export _Bdel_cychdr
-_Bdel_cychdr: .equ h'00300e94
+_Bdel_cychdr: .equ h'00300f00
  .export _Bdisp_AllClr_DDVRAM
-_Bdisp_AllClr_DDVRAM: .equ h'00300ea4
+_Bdisp_AllClr_DDVRAM: .equ h'00300f10
  .export _BfileFLS_CloseFile
-_BfileFLS_CloseFile: .equ h'00300eb4
+_BfileFLS_CloseFile: .equ h'00300f20
  .export _Bkey_Set_RepeatTime_Default
-_Bkey_Set_RepeatTime_Default: .equ h'00300ec4
+_Bkey_Set_RepeatTime_Default: .equ h'00300f30
  .export _CallbackAtQuitMainFunction
-_CallbackAtQuitMainFunction: .equ h'00300ed4
+_CallbackAtQuitMainFunction: .equ h'00300f40
  .export _flsFindClose
-_flsFindClose: .equ h'00300ee4
+_flsFindClose: .equ h'00300f50
  .export _GetKey
-_GetKey: .equ h'00300ef4
+_GetKey: .equ h'00300f60
  .export _GLibAddinAplExecutionCheck
-_GLibAddinAplExecutionCheck: .equ h'00300f04
+_GLibAddinAplExecutionCheck: .equ h'00300f70
  .export _Hmem_SetMMU
-_Hmem_SetMMU: .equ h'00300f14
- .export _PrintXY
-_PrintXY: .equ h'00300f24
+_Hmem_SetMMU: .equ h'00300f80
+ .export _Print
+_Print: .equ h'00300f90
+ .export _PrintMini
+_PrintMini: .equ h'00300fa0
+ .export _locate
+_locate: .equ h'00300fbc
+ .export _Bdisp_ReadArea_DD
+_Bdisp_ReadArea_DD: .equ h'00300fe4
  .export _GetKeyWait
-_GetKeyWait: .equ h'00300f34
+_GetKeyWait: .equ h'00301118
  .export _Bkey_GetKeyTableInfo
-_Bkey_GetKeyTableInfo: .equ h'00300f74
+_Bkey_GetKeyTableInfo: .equ h'00301158
  .export _KeyCodeConvert
-_KeyCodeConvert: .equ h'00300fd0
+_KeyCodeConvert: .equ h'003011b4
  .export __Delay
-__Delay: .equ h'00301048
+__Delay: .equ h'0030122c
  .export _Hkey_Check_Key_SDK
-_Hkey_Check_Key_SDK: .equ h'003010d0
+_Hkey_Check_Key_SDK: .equ h'003012b4
  .export _IsKeyDown
-_IsKeyDown: .equ h'003011fc
+_IsKeyDown: .equ h'003013e0
  .export _IsKeyUp
-_IsKeyUp: .equ h'0030122c
+_IsKeyUp: .equ h'00301410
  .export _GetSDKLibraryVersion
-_GetSDKLibraryVersion: .equ h'00301278
+_GetSDKLibraryVersion: .equ h'0030145c
  .export _SetTimer
-_SetTimer: .equ h'0030127e
+_SetTimer: .equ h'00301462
  .export _KillTimer
-_KillTimer: .equ h'003012d2
+_KillTimer: .equ h'003014b6
  .export _Sleep
-_Sleep: .equ h'00301316
+_Sleep: .equ h'003014fa
  .export __divls
-__divls: .equ h'00301378
+__divls: .equ h'0030155c
  .export __modls
-__modls: .equ h'0030142c
+__modls: .equ h'00301610
  .export __slow_mvn
-__slow_mvn: .equ h'003014f4
+__slow_mvn: .equ h'003016d8
  .export _Bcre_cychdr
-_Bcre_cychdr: .equ h'0030152c
+_Bcre_cychdr: .equ h'00301710
  .export _Bkey_GetKeyTableInfoJumpFunc
-_Bkey_GetKeyTableInfoJumpFunc: .equ h'0030153c
+_Bkey_GetKeyTableInfoJumpFunc: .equ h'00301720
  .export _Bkey_GetKeyWait
-_Bkey_GetKeyWait: .equ h'0030154c
+_Bkey_GetKeyWait: .equ h'00301730
  .export _BSrl_DummyWAIT
-_BSrl_DummyWAIT: .equ h'0030155c
+_BSrl_DummyWAIT: .equ h'00301740
  .export _Bsta_cychdr
-_Bsta_cychdr: .equ h'0030156c
+_Bsta_cychdr: .equ h'00301750
  .export _Bstp_cychdr
-_Bstp_cychdr: .equ h'0030157c
+_Bstp_cychdr: .equ h'00301760
  .export _Chattering
-_Chattering: .equ h'0030158c
+_Chattering: .equ h'00301770
+ .export _DD_GET
+_DD_GET: .equ h'00301780
  .export _GLibGetAddinLibInfo
-_GLibGetAddinLibInfo: .equ h'0030159c
+_GLibGetAddinLibInfo: .equ h'00301790
  .export _GLibGetOSVersionInfo
-_GLibGetOSVersionInfo: .equ h'003015ac
+_GLibGetOSVersionInfo: .equ h'003017a0
+ .export _locate_OS
+_locate_OS: .equ h'003017b0
+ .export _PrintMiniSd
+_PrintMiniSd: .equ h'003017c0
  .export _SetIntFlagPaturn
-_SetIntFlagPaturn: .equ h'003015bc
+_SetIntFlagPaturn: .equ h'003017d0
  .end

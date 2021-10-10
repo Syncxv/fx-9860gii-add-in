@@ -38,10 +38,21 @@ int AddIn_main(int isAppli, unsigned short OptionNum)
             active = 0;
         }
         if(active) {
-            // locate(1,1);
-            // Print((unsigned char*)"<distance/speed|time>");
+            locate(1,1);
+            Print((unsigned char*)"<distance/speed|time>");
+            locate(1,2);
+            Print((unsigned char*)"a^2+b^2=c^2 pythagoras");
+            locate(1,3);
+            Print((unsigned char*)"soh,cah,toa");
+            locate(1,4);
+            Print((unsigned char*)"QUAD: ax^2+bx+c=0");
+            locate(1,5);
+            Print((unsigned char*)"QU:x=-b+-sqr(b^2-4ac)/2a");
+            locate(1,6);
+            Print((unsigned char*)"Vol Cylinder: PIr^2h");
+            locate(1,7);
+            Print((unsigned char*)"Area Parrelelorgram: bxh");
             // PrintXY(1,2,"soh,cah,toa;PIr^2", 1);
-            PrintXY(1,2,"some formulas eh", 1);
         }
         ML_display_vram();
         ML_clear_vram();
@@ -64,7 +75,19 @@ int AddIn_main(int isAppli, unsigned short OptionNum)
     // return 1;
 }
 
+void thing(int type)
+{
+    switch (type)
+    {
+    case 0:
+        // formulas and sheet
 
+        break;
+    
+    default:
+        break;
+    }
+}
 
 
 //****************************************************************************
