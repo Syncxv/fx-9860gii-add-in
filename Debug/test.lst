@@ -1,4 +1,4 @@
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 10-Oct-2021 16:21:16  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 13-Oct-2021 02:25:22  PAGE    1
 
 ************ OBJECT LISTING ************
 
@@ -40,306 +40,335 @@ P   00000000              _AddIn_main:                     ; function: AddIn_mai
           test.c    30    {
           test.c    31        unsigned int key;
           test.c    32        int active = 0;
-          test.c    33        Bdisp_AllClr_DDVRAM();
-    00000000 D33A                   MOV.L       L472+10,R3 ; _Bdisp_AllClr_DDVRAM
+          test.c    33        int page = 1;
+          test.c    34        Bdisp_AllClr_DDVRAM();
+    00000000 D32E                   MOV.L       L480+10,R3 ; _Bdisp_AllClr_DDVRAM
     00000002 7FFC                   ADD         #-4,R15
-    00000004 EA00                   MOV         #0,R10
-    00000006 430B                   JSR         @R3
-    00000008 6BA3                   MOV         R10,R11
-    0000000A DC39                   MOV.L       L472+14,R12; _IsKeyDown
-    0000000C DD39                   MOV.L       L472+18,R13; _locate
-    0000000E DE3A                   MOV.L       L472+22,R14; _Print
-          test.c    34        while (IsKeyDown(KEY_CTRL_EXIT) == 0) {
-    00000010 A05A                   BRA         L461
-    00000012 E901                   MOV         #1,R9
-    00000014              L462:                             
-          test.c    35            if(IsKeyDown(KEY_CTRL_F3)) {
-    00000014 9465                   MOV.W       L472,R4    ; H'753B
-    00000016 4C0B                   JSR         @R12
-    00000018 0009                   NOP
-    0000001A 2008                   TST         R0,R0
-    0000001C 8901                   BT          L463
-          test.c    36                active = 1;
+    00000004 E900                   MOV         #0,R9
+    00000006 6B93                   MOV         R9,R11
+    00000008 EA01                   MOV         #1,R10
+    0000000A 430B                   JSR         @R3
+    0000000C 6CA3                   MOV         R10,R12
+          test.c    35        while (IsKeyDown(KEY_CTRL_EXIT) == 0) {
+    0000000E A083                   BRA         L462
+    00000010 0009                   NOP
+    00000012              L463:                             
+          test.c    36            if(IsKeyDown(KEY_CTRL_F3)) {
+    00000012 9D4E                   MOV.W       L480,R13   ; H'753B
+    00000014 4E0B                   JSR         @R14
+    00000016 64D3                   MOV         R13,R4
+    00000018 2008                   TST         R0,R0
+    0000001A 8901                   BT          L464
+          test.c    37                active = 1;
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 10-Oct-2021 16:21:16  PAGE    2
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-    0000001E A006                   BRA         L464
-    00000020 6B93                   MOV         R9,R11
-    00000022              L463:                             
-          test.c    37            } else if(IsKeyDown(KEY_CTRL_F4)) {
-    00000022 945F                   MOV.W       L472+2,R4  ; H'753C
-    00000024 4C0B                   JSR         @R12
-    00000026 0009                   NOP
-    00000028 2008                   TST         R0,R0
-    0000002A 8900                   BT          L464
-          test.c    38                active = 0;
-    0000002C 6BA3                   MOV         R10,R11
-    0000002E              L464:                             
-          test.c    39            }
-          test.c    40            if(active) {
-    0000002E 2BB8                   TST         R11,R11
-    00000030 8940                   BT          L466
-          test.c    41                locate(1,1);
-    00000032 E501                   MOV         #1,R5
-    00000034 4D0B                   JSR         @R13
-    00000036 6453                   MOV         R5,R4
-          test.c    42                Print((unsigned char*)"<distance/speed|time>");
-    00000038 D430                   MOV.L       L472+26,R4 ; L429
-    0000003A 4E0B                   JSR         @R14
-    0000003C 0009                   NOP
-          test.c    43                locate(1,2);
-    0000003E E502                   MOV         #2,R5
-    00000040 4D0B                   JSR         @R13
-    00000042 E401                   MOV         #1,R4
-          test.c    44                Print((unsigned char*)"a^2+b^2=c^2 pythagoras");
-    00000044 D42E                   MOV.L       L472+30,R4 ; L430
-    00000046 4E0B                   JSR         @R14
-    00000048 0009                   NOP
-          test.c    45                locate(1,3);
-    0000004A E503                   MOV         #3,R5
-    0000004C 4D0B                   JSR         @R13
-    0000004E E401                   MOV         #1,R4
-          test.c    46                Print((unsigned char*)"soh,cah,toa");
-    00000050 D42C                   MOV.L       L472+34,R4 ; L431
-    00000052 4E0B                   JSR         @R14
-    00000054 0009                   NOP
-          test.c    47                locate(1,4);
-    00000056 E504                   MOV         #4,R5
-    00000058 4D0B                   JSR         @R13
-    0000005A E401                   MOV         #1,R4
-          test.c    48                Print((unsigned char*)"QUADRATIC:");
-    0000005C D42A                   MOV.L       L472+38,R4 ; L432
-    0000005E 4E0B                   JSR         @R14
-    00000060 0009                   NOP
-          test.c    49                locate(1, 6); Print((unsigned char*)"ax^2+bx+c=0");
-    00000062 E506                   MOV         #6,R5
-    00000064 4D0B                   JSR         @R13
-    00000066 E401                   MOV         #1,R4
-    00000068 D428                   MOV.L       L472+42,R4 ; L433
-    0000006A 4E0B                   JSR         @R14
-    0000006C 0009                   NOP
-          test.c    50                locate(1,7); Print((unsigned char*)"x=-b+-sqr(b^2-4ac)/2a");
-    0000006E E507                   MOV         #7,R5
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 10-Oct-2021 16:21:16  PAGE    3
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 13-Oct-2021 02:25:22  PAGE    2
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-    00000070 4D0B                   JSR         @R13
-    00000072 E401                   MOV         #1,R4
-    00000074 D426                   MOV.L       L472+46,R4 ; L434
-    00000076 4E0B                   JSR         @R14
-    00000078 0009                   NOP
-          test.c    51                locate(1,8); Print((unsigned char*)"----------------");
-    0000007A E508                   MOV         #8,R5
-    0000007C 4D0B                   JSR         @R13
-    0000007E E401                   MOV         #1,R4
-    00000080 D824                   MOV.L       L472+50,R8 ; L435
-    00000082 4E0B                   JSR         @R14
-    00000084 6483                   MOV         R8,R4
-          test.c    52                locate(1,9); Print((unsigned char*)"Vol Cylinder: PIr^2h");
-    00000086 E509                   MOV         #9,R5
-    00000088 4D0B                   JSR         @R13
-    0000008A E401                   MOV         #1,R4
-    0000008C D422                   MOV.L       L472+54,R4 ; L436
-    0000008E 4E0B                   JSR         @R14
-    00000090 0009                   NOP
-          test.c    53                locate(1,10); Print((unsigned char*)"Area Parelelorgram: ");
-    00000092 E50A                   MOV         #10,R5
-    00000094 4D0B                   JSR         @R13
-    00000096 E401                   MOV         #1,R4
-    00000098 D420                   MOV.L       L472+58,R4 ; L437
-    0000009A 4E0B                   JSR         @R14
-    0000009C 0009                   NOP
-          test.c    54                locate(1, 11); Print((unsigned char*)"bxh");
-    0000009E E50B                   MOV         #11,R5
-    000000A0 4D0B                   JSR         @R13
-    000000A2 E401                   MOV         #1,R4
-    000000A4 D41E                   MOV.L       L472+62,R4 ; L438
-    000000A6 4E0B                   JSR         @R14
-    000000A8 0009                   NOP
-          test.c    55                locate(1,12); Print((unsigned char*)"----------------");
-    000000AA E50C                   MOV         #12,R5
-    000000AC 4D0B                   JSR         @R13
-    000000AE E401                   MOV         #1,R4
-    000000B0 4E0B                   JSR         @R14
-    000000B2 6483                   MOV         R8,R4
-    000000B4              L466:                             
-          test.c    56                // PrintXY(1,2,"soh,cah,toa;PIr^2", 1);
-          test.c    57            }
-          test.c    58            ML_display_vram();
-    000000B4 D31B                   MOV.L       L472+66,R3 ; _ML_display_vram
-    000000B6 430B                   JSR         @R3
-    000000B8 0009                   NOP
-          test.c    59            ML_clear_vram();
-    000000BA D21B                   MOV.L       L472+70,R2 ; _ML_clear_vram
-    000000BC 420B                   JSR         @R2
-    000000BE 0009                   NOP
-          test.c    60            Sleep(500);
-    000000C0 9411                   MOV.W       L472+4,R4  ; H'01F4
-    000000C2 D31A                   MOV.L       L472+74,R3 ; _Sleep
-    000000C4 430B                   JSR         @R3
-    000000C6 0009                   NOP
-    000000C8              L461:                             
-    000000C8 940E                   MOV.W       L472+6,R4  ; H'7532
+    0000001C A01A                   BRA         __$main$430
+    0000001E 6BA3                   MOV         R10,R11
+    00000020              L464:                             
+          test.c    38            } 
+          test.c    39            else if(IsKeyDown(KEY_CTRL_F4)) {
+    00000020 9D48                   MOV.W       L480+2,R13 ; H'753C
+    00000022 4E0B                   JSR         @R14
+    00000024 64D3                   MOV         R13,R4
+    00000026 2008                   TST         R0,R0
+    00000028 8901                   BT          L466
+          test.c    40                active = 0;
+    0000002A A013                   BRA         __$main$430
+    0000002C 6B93                   MOV         R9,R11
+    0000002E              L466:                             
+          test.c    41            } 
+          test.c    42            else if (IsKeyDown(KEY_CTRL_F1)) {
+    0000002E 9D42                   MOV.W       L480+4,R13 ; H'7539
+    00000030 4E0B                   JSR         @R14
+    00000032 64D3                   MOV         R13,R4
+    00000034 2008                   TST         R0,R0
+    00000036 8904                   BT          L468
+          test.c    43                if(page == 1) goto main;
+    00000038 60C3                   MOV         R12,R0
+    0000003A 8801                   CMP/EQ      #1,R0
+    0000003C 890A                   BT          __$main$430
+          test.c    44                page = page - 1;
+    0000003E A009                   BRA         __$main$430
+    00000040 7CFF                   ADD         #-1,R12
+    00000042              L468:                             
+          test.c    45            }
+          test.c    46            else if (IsKeyDown(KEY_CTRL_F6)) {
+    00000042 9D39                   MOV.W       L480+6,R13 ; H'753E
+    00000044 4E0B                   JSR         @R14
+    00000046 64D3                   MOV         R13,R4
+    00000048 2008                   TST         R0,R0
+    0000004A 8903                   BT          __$main$430
+          test.c    47                if(page >= 2) goto main;
+    0000004C E402                   MOV         #2,R4
+    0000004E 3C43                   CMP/GE      R4,R12
+    00000050 8900                   BT          __$main$430
+          test.c    48                page++;
+    00000052 7C01                   ADD         #1,R12
+          test.c    49            }
+          test.c    50            main:
+    00000054              __$main$430:                     ; label: main
+          test.c    51            if(active) {
+    00000054 2BB8                   TST         R11,R11
+    00000056 8955                   BT          L473
+          test.c    52                switch (page)
+    00000058 DD19                   MOV.L       L480+14,R13; _Print
+    0000005A 60C3                   MOV         R12,R0
+    0000005C DE19                   MOV.L       L480+18,R14; _locate
+    0000005E 8801                   CMP/EQ      #1,R0
+    00000060 8903                   BT          L450
+    00000062 8802                   CMP/EQ      #2,R0
+    00000064 893C                   BT          L457
+    00000066 A04D                   BRA         L473
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 10-Oct-2021 16:21:16  PAGE    4
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-    000000CA 4C0B                   JSR         @R12
-    000000CC 0009                   NOP
-    000000CE 2008                   TST         R0,R0
-    000000D0 89A0                   BT          L462
-    000000D2 DE17                   MOV.L       L472+78,R14; _GetKey
-          test.c    61        }
-          test.c    62        while(1){
-    000000D4              L468:                             
-          test.c    63            GetKey(&key);
-    000000D4 4E0B                   JSR         @R14
-    000000D6 64F3                   MOV         R15,R4
-    000000D8 AFFC                   BRA         L468
-    000000DA 0009                   NOP
-          test.c    64        }
-          test.c    65        return 1;
-          test.c    66       
-          test.c    67        // Bdisp_AllClr_DDVRAM();
-          test.c    68        // Bdisp_DrawLineVRAM(0,0,20,0);    
-          test.c    69        // // locate(1,1);
-          test.c    70        // // Print((unsigned char*)"<distance/speed|time>");
-          test.c    71        // // locate(1,2);
-          test.c    72        // // Print((unsigned char*)"soh,cah,toa");
-          test.c    73    
-          test.c    74        
-          test.c    75    
-          test.c    76        // return 1;
-          test.c    77    }
-          test.c    78    
-          test.c    79    void thing(int type)
-    000000DC              _thing:                          ; function: thing
-                                                           ; frame size=0
-          test.c    80    {
-          test.c    81        switch (type)
-    000000DC 6043                   MOV         R4,R0
-          test.c    82        {
-          test.c    83        case 0:
-          test.c    84            // formulas and sheet
-          test.c    85    
-          test.c    86            break;
-          test.c    87        
-          test.c    88        default:
-          test.c    89            break;
-          test.c    90        }
-          test.c    91    }
-    000000DE 000B                   RTS
-    000000E0 8800                   CMP/EQ      #0,R0
-    000000E2              L472:                             
-    000000E2 753B                   .DATA.W     H'753B
-    000000E4 753C                   .DATA.W     H'753C
-    000000E6 01F4                   .DATA.W     H'01F4
-    000000E8 7532                   .DATA.W     H'7532
-    000000EA 0000                   .DATA.W     0
-    000000EC <00000000>             .DATA.L     _Bdisp_AllClr_DDVRAM
-    000000F0 <00000000>             .DATA.L     _IsKeyDown
-    000000F4 <00000000>             .DATA.L     _locate
-    000000F8 <00000000>             .DATA.L     _Print
-    000000FC <00000000>             .DATA.L     L429
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 10-Oct-2021 16:21:16  PAGE    5
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 13-Oct-2021 02:25:22  PAGE    3
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-    00000100 <00000000>             .DATA.L     L430
-    00000104 <00000000>             .DATA.L     L431
-    00000108 <00000000>             .DATA.L     L432
-    0000010C <00000000>             .DATA.L     L433
-    00000110 <00000000>             .DATA.L     L434
-    00000114 <00000000>             .DATA.L     L435
-    00000118 <00000000>             .DATA.L     L436
-    0000011C <00000000>             .DATA.L     L437
-    00000120 <00000000>             .DATA.L     L438
-    00000124 <00000000>             .DATA.L     _ML_display_vram
-    00000128 <00000000>             .DATA.L     _ML_clear_vram
-    0000012C <00000000>             .DATA.L     _Sleep
-    00000130 <00000000>             .DATA.L     _GetKey
-          test.c    92    
+    00000068 0009                   NOP
+    0000006A              L450:                            ; case label 
+          test.c    53                {
+          test.c    54                case 1:
+          test.c    55                    locate(1,1);
+    0000006A E501                   MOV         #1,R5
+    0000006C 4E0B                   JSR         @R14
+    0000006E 6453                   MOV         R5,R4
+          test.c    56                    Print((unsigned char*)"<distance/speed|time>");
+    00000070 D415                   MOV.L       L480+22,R4 ; L434
+    00000072 4D0B                   JSR         @R13
+    00000074 0009                   NOP
+          test.c    57                    locate(1,2);
+    00000076 E502                   MOV         #2,R5
+    00000078 4E0B                   JSR         @R14
+    0000007A E401                   MOV         #1,R4
+          test.c    58                    Print((unsigned char*)"a^2+b^2=c^2 pythagoras");
+    0000007C D413                   MOV.L       L480+26,R4 ; L435
+    0000007E 4D0B                   JSR         @R13
+    00000080 0009                   NOP
+          test.c    59                    locate(1,3);
+    00000082 E503                   MOV         #3,R5
+    00000084 4E0B                   JSR         @R14
+    00000086 E401                   MOV         #1,R4
+          test.c    60                    Print((unsigned char*)"soh,cah,toa");
+    00000088 D411                   MOV.L       L480+30,R4 ; L436
+    0000008A 4D0B                   JSR         @R13
+    0000008C 0009                   NOP
+          test.c    61                    locate(1,4);
+    0000008E E504                   MOV         #4,R5
+    00000090 4E0B                   JSR         @R14
+    00000092 E401                   MOV         #1,R4
+          test.c    62                    Print((unsigned char*)"QUADRATIC:");
+    00000094 D40F                   MOV.L       L480+34,R4 ; L437
+    00000096 4D0B                   JSR         @R13
+    00000098 0009                   NOP
+          test.c    63                    locate(1, 5); Print((unsigned char*)"ax^2+bx+c=0");
+    0000009A E505                   MOV         #5,R5
+    0000009C 4E0B                   JSR         @R14
+    0000009E E401                   MOV         #1,R4
+    000000A0 D80D                   MOV.L       L480+38,R8 ; L438
+    000000A2 4D0B                   JSR         @R13
+    000000A4 6483                   MOV         R8,R4
+          test.c    64                    locate(1,6); Print((unsigned char*)"x=-b+-sqr(b^2-4ac)/2a");
+    000000A6 E506                   MOV         #6,R5
+    000000A8 4E0B                   JSR         @R14
+    000000AA E401                   MOV         #1,R4
+    000000AC DE0B                   MOV.L       L480+42,R14; L439
+          test.c    65                    break;
+    000000AE A027                   BRA         L479
+    000000B0 0009                   NOP
+    000000B2              L480:                             
+    000000B2 753B                   .DATA.W     H'753B
+    000000B4 753C                   .DATA.W     H'753C
+    000000B6 7539                   .DATA.W     H'7539
+    000000B8 753E                   .DATA.W     H'753E
+    000000BA 0000                   .DATA.W     0
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 13-Oct-2021 02:25:22  PAGE    4
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+    000000BC <00000000>             .DATA.L     _Bdisp_AllClr_DDVRAM
+    000000C0 <00000000>             .DATA.L     _Print
+    000000C4 <00000000>             .DATA.L     _locate
+    000000C8 <00000000>             .DATA.L     L434
+    000000CC <00000000>             .DATA.L     L435
+    000000D0 <00000000>             .DATA.L     L436
+    000000D4 <00000000>             .DATA.L     L437
+    000000D8 <00000000>             .DATA.L     L438
+    000000DC <00000000>             .DATA.L     L439
+    000000E0              L457:                            ; case label 
+          test.c    66                case 2:
+          test.c    67                    locate(1,1); Print((unsigned char*)"Vol Cylinder: PIr^2h");
+    000000E0 E501                   MOV         #1,R5
+    000000E2 4E0B                   JSR         @R14
+    000000E4 6453                   MOV         R5,R4
+    000000E6 D414                   MOV.L       L481+6,R4  ; L440
+    000000E8 4D0B                   JSR         @R13
+    000000EA 0009                   NOP
+          test.c    68                    locate(1,2); Print((unsigned char*)"Area Parelelorgram: ");
+    000000EC E502                   MOV         #2,R5
+    000000EE 4E0B                   JSR         @R14
+    000000F0 E401                   MOV         #1,R4
+    000000F2 D812                   MOV.L       L481+10,R8 ; L441
+    000000F4 4D0B                   JSR         @R13
+    000000F6 6483                   MOV         R8,R4
+          test.c    69                    locate(1,3); Print((unsigned char*)"bxh");
+    000000F8 E503                   MOV         #3,R5
+    000000FA 4E0B                   JSR         @R14
+    000000FC E401                   MOV         #1,R4
+    000000FE DE10                   MOV.L       L481+14,R14; L442
+          test.c    70                    break;
+    00000100              L479:                             
+    00000100 4D0B                   JSR         @R13
+    00000102 64E3                   MOV         R14,R4
+          test.c    71                default:
+          test.c    72                    break;
+    00000104              L473:                             
+          test.c    73                }
+          test.c    74                
+          test.c    75                
+          test.c    76                // PrintXY(1,2,"soh,cah,toa;PIr^2", 1);
+          test.c    77            }
+          test.c    78            ML_display_vram();
+    00000104 DE0F                   MOV.L       L481+18,R14; _ML_display_vram
+    00000106 4E0B                   JSR         @R14
+    00000108 0009                   NOP
+          test.c    79            ML_clear_vram();
+    0000010A DE0F                   MOV.L       L481+22,R14; _ML_clear_vram
+    0000010C 4E0B                   JSR         @R14
+    0000010E 0009                   NOP
+          test.c    80            Sleep(500);
+    00000110 DD0E                   MOV.L       L481+26,R13; _Sleep
+    00000112 9E0E                   MOV.W       L481,R14   ; H'01F4
+    00000114 4D0B                   JSR         @R13
+    00000116 64E3                   MOV         R14,R4
+    00000118              L462:                             
+    00000118 9D0C                   MOV.W       L481+2,R13 ; H'7532
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 13-Oct-2021 02:25:22  PAGE    5
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+    0000011A DE0D                   MOV.L       L481+30,R14; _IsKeyDown
+    0000011C 4E0B                   JSR         @R14
+    0000011E 64D3                   MOV         R13,R4
+    00000120 2008                   TST         R0,R0
+    00000122 8B01                   BF          L482
+    00000124 AF75                   BRA         L463
+    00000126 0009                   NOP
+    00000128              L482:                             
+    00000128 DE0A                   MOV.L       L481+34,R14; _GetKey
+          test.c    81        }
+          test.c    82        while(1){
+    0000012A              L476:                             
+          test.c    83            GetKey(&key);
+    0000012A 4E0B                   JSR         @R14
+    0000012C 64F3                   MOV         R15,R4
+    0000012E AFFC                   BRA         L476
+    00000130 0009                   NOP
+    00000132              L481:                             
+    00000132 01F4                   .DATA.W     H'01F4
+    00000134 7532                   .DATA.W     H'7532
+    00000136 0000                   .DATA.W     0
+    00000138 <00000000>             .DATA.L     L440
+    0000013C <00000000>             .DATA.L     L441
+    00000140 <00000000>             .DATA.L     L442
+    00000144 <00000000>             .DATA.L     _ML_display_vram
+    00000148 <00000000>             .DATA.L     _ML_clear_vram
+    0000014C <00000000>             .DATA.L     _Sleep
+    00000150 <00000000>             .DATA.L     _IsKeyDown
+    00000154 <00000000>             .DATA.L     _GetKey
+          test.c    84        }
+          test.c    85        return 1;
+          test.c    86       
+          test.c    87        // Bdisp_AllClr_DDVRAM();
+          test.c    88        // Bdisp_DrawLineVRAM(0,0,20,0);    
+          test.c    89        // // locate(1,1);
+          test.c    90        // // Print((unsigned char*)"<distance/speed|time>");
+          test.c    91        // // locate(1,2);
+          test.c    92        // // Print((unsigned char*)"soh,cah,toa");
           test.c    93    
-          test.c    94    //****************************************************************************
-          test.c    95    //**************                                              ****************
-          test.c    96    //**************                 Notice!                      ****************
-          test.c    97    //**************                                              ****************
-          test.c    98    //**************  Please do not change the following source.  ****************
-          test.c    99    //**************                                              ****************
-          test.c   100    //****************************************************************************
-          test.c   101    
-          test.c   102    
-          test.c   103    #pragma section _BR_Size
-          test.c   104    unsigned long BR_Size;
-          test.c   105    #pragma section
+          test.c    94        
+          test.c    95    
+          test.c    96        // return 1;
+          test.c    97    }
+          test.c    98    
+          test.c    99    //****************************************************************************
+          test.c   100    //**************                                              ****************
+          test.c   101    //**************                 Notice!                      ****************
+          test.c   102    //**************                                              ****************
+          test.c   103    //**************  Please do not change the following source.  ****************
+          test.c   104    //**************                                              ****************
+          test.c   105    //****************************************************************************
           test.c   106    
           test.c   107    
-          test.c   108    #pragma section _TOP
-          test.c   109    
-          test.c   110    //****************************************************************************
-          test.c   111    //  InitializeSystem
-          test.c   112    //
-          test.c   113    //  param   :   isAppli   : 1 = Application / 0 = eActivity
-          test.c   114    //              OptionNum : Option Number (only eActivity)
-          test.c   115    //
-          test.c   116    //  retval  :   1 = No error / 0 = Error
-          test.c   117    //
-          test.c   118    //****************************************************************************
-          test.c   119    int InitializeSystem(int isAppli, unsigned short OptionNum)
-P_T 00000000              _InitializeSystem:               ; function: InitializeSystem
-                                                           ; frame size=0
-          test.c   120    {
-          test.c   121        return INIT_ADDIN_APPLICATION(isAppli, OptionNum);
-    00000000 D301                   MOV.L       L473+2,R3  ; _INIT_ADDIN_APPLICATION
-    00000002 432B                   JMP         @R3
-    00000004 0009                   NOP
-    00000006              L473:                             
-    00000006 0000                   .DATA.W     0
-    00000008 <00000000>             .DATA.L     _INIT_ADDIN_APPLICATION
-          test.c   122    }
-          test.c   123    
-          test.c   124    #pragma section
-          test.c   125    
-C   00000000              L429:
-    00000000 3C64697374             .SDATA      "<distance/speed|time>"
+          test.c   108    #pragma section _BR_Size
+          test.c   109    unsigned long BR_Size;
+          test.c   110    #pragma section
+          test.c   111    
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 10-Oct-2021 16:21:16  PAGE    6
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 13-Oct-2021 02:25:22  PAGE    6
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+          test.c   112    
+          test.c   113    #pragma section _TOP
+          test.c   114    
+          test.c   115    //****************************************************************************
+          test.c   116    //  InitializeSystem
+          test.c   117    //
+          test.c   118    //  param   :   isAppli   : 1 = Application / 0 = eActivity
+          test.c   119    //              OptionNum : Option Number (only eActivity)
+          test.c   120    //
+          test.c   121    //  retval  :   1 = No error / 0 = Error
+          test.c   122    //
+          test.c   123    //****************************************************************************
+          test.c   124    int InitializeSystem(int isAppli, unsigned short OptionNum)
+P_T 00000000              _InitializeSystem:               ; function: InitializeSystem
+                                                           ; frame size=0
+          test.c   125    {
+          test.c   126        return INIT_ADDIN_APPLICATION(isAppli, OptionNum);
+    00000000 D301                   MOV.L       L483+2,R3  ; _INIT_ADDIN_APPLICATION
+    00000002 432B                   JMP         @R3
+    00000004 0009                   NOP
+    00000006              L483:                             
+    00000006 0000                   .DATA.W     0
+    00000008 <00000000>             .DATA.L     _INIT_ADDIN_APPLICATION
+          test.c   127    }
+          test.c   128    
+          test.c   129    #pragma section
+          test.c   130    
+C   00000000              L434:
+    00000000 3C64697374             .SDATA      "<distance/speed|time>"
              616E63652F   
              7370656564   
              7C74696D65   
              3E           
     00000015 00                     .DATA.B     H'00
     00000016 00000002               .RES.W      1
-    00000018              L430:
+    00000018              L435:
     00000018 615E322B62             .SDATA      "a^2+b^2=c^2 pythagoras"
              5E323D635E   
              3220707974   
@@ -347,22 +376,31 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
              6173         
     0000002E 00                     .DATA.B     H'00
     0000002F 00000001               .RES.B      1
-    00000030              L431:
+    00000030              L436:
     00000030 736F682C63             .SDATA      "soh,cah,toa"
              61682C746F   
              61           
     0000003B 00                     .DATA.B     H'00
-    0000003C              L432:
+    0000003C              L437:
     0000003C 5155414452             .SDATA      "QUADRATIC:"
              415449433A   
     00000046 00                     .DATA.B     H'00
     00000047 00000001               .RES.B      1
-    00000048              L433:
+    00000048              L438:
     00000048 61785E322B             .SDATA      "ax^2+bx+c=0"
              62782B633D   
              30           
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 13-Oct-2021 02:25:22  PAGE    7
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000053 00                     .DATA.B     H'00
-    00000054              L434:
+    00000054              L439:
     00000054 783D2D622B             .SDATA      "x=-b+-sqr(b^2-4ac)/2a"
              2D73717228   
              625E322D34   
@@ -370,42 +408,25 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
              61           
     00000069 00                     .DATA.B     H'00
     0000006A 00000002               .RES.W      1
-    0000006C              L435:
-    0000006C 2D2D2D2D2D             .SDATA      "----------------"
-             2D2D2D2D2D   
-             2D2D2D2D2D   
-             2D           
-    0000007C 00                     .DATA.B     H'00
-    0000007D 00000001               .RES.B      1
-    0000007E 00000002               .RES.W      1
-    00000080              L436:
-    00000080 566F6C2043             .SDATA      "Vol Cylinder: PIr^2h"
+    0000006C              L440:
+    0000006C 566F6C2043             .SDATA      "Vol Cylinder: PIr^2h"
              796C696E64   
              65723A2050   
              49725E3268   
-    00000094 00                     .DATA.B     H'00
-    00000095 00000001               .RES.B      1
-    00000096 00000002               .RES.W      1
-    00000098              L437:
-    00000098 4172656120             .SDATA      "Area Parelelorgram: "
+    00000080 00                     .DATA.B     H'00
+    00000081 00000001               .RES.B      1
+    00000082 00000002               .RES.W      1
+    00000084              L441:
+    00000084 4172656120             .SDATA      "Area Parelelorgram: "
              506172656C   
              656C6F7267   
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 10-Oct-2021 16:21:16  PAGE    7
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
              72616D3A20   
-    000000AC 00                     .DATA.B     H'00
-    000000AD 00000001               .RES.B      1
-    000000AE 00000002               .RES.W      1
-    000000B0              L438:
-    000000B0 627868                 .SDATA      "bxh"
-    000000B3 00                     .DATA.B     H'00
+    00000098 00                     .DATA.B     H'00
+    00000099 00000001               .RES.B      1
+    0000009A 00000002               .RES.W      1
+    0000009C              L442:
+    0000009C 627868                 .SDATA      "bxh"
+    0000009F 00                     .DATA.B     H'00
 B_B 00000000              _BR_Size:                        ; static: BR_Size
     00000000 00000004               .RES.L      1
 
@@ -439,28 +460,7 @@ B_B 00000000              _BR_Size:                        ; static: BR_Size
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 10-Oct-2021 16:21:16  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 13-Oct-2021 02:25:22  PAGE    1
 
 
 ******** STATISTICS INFORMATION ********
@@ -476,16 +476,16 @@ NUMBER OF WARNINGS:         0
 
 ******* SOURCE LINE INFORMATION ********
 
-COMPILED SOURCE LINE:      125
+COMPILED SOURCE LINE:      130
 
 
 
 ******* SECTION SIZE INFORMATION *******
 
-PROGRAM  SECTION (P):                               00000134 Byte(s)
+PROGRAM  SECTION (P):                               00000158 Byte(s)
 PROGRAM  SECTION (P_BR_Size):                       00000000 Byte(s)
 PROGRAM  SECTION (P_TOP):                           0000000C Byte(s)
-CONSTANT SECTION (C):                               000000B4 Byte(s)
+CONSTANT SECTION (C):                               000000A0 Byte(s)
 CONSTANT SECTION (C_BR_Size):                       00000000 Byte(s)
 CONSTANT SECTION (C_TOP):                           00000000 Byte(s)
 DATA     SECTION (D):                               00000000 Byte(s)
@@ -495,15 +495,15 @@ BSS      SECTION (B):                               00000000 Byte(s)
 BSS      SECTION (B_BR_Size):                       00000004 Byte(s)
 BSS      SECTION (B_TOP):                           00000000 Byte(s)
 
- TOTAL PROGRAM SIZE: 000001F8 Byte(s)
+ TOTAL PROGRAM SIZE: 00000208 Byte(s)
 
 
 
 ********** LABEL INFORMATION ***********
 
 NUMBER OF EXTERNAL REFERENCE SYMBOLS:            9
-NUMBER OF EXTERNAL DEFINITION SYMBOLS:           4
-NUMBER OF INTERNAL/EXTERNAL SYMBOLS:            31
+NUMBER OF EXTERNAL DEFINITION SYMBOLS:           3
+NUMBER OF INTERNAL/EXTERNAL SYMBOLS:            35
 
 
 
@@ -529,5 +529,5 @@ NUMBER OF INTERNAL/EXTERNAL SYMBOLS:            31
 *** COMMAND PARAMETER ***
 
 
-  -subcommand=C:\Users\USER\AppData\Local\Temp\hmkE2CA.tmp 
+  -subcommand=C:\Users\USER\AppData\Local\Temp\hmkAB91.tmp 
 

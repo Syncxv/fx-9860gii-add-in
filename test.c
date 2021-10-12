@@ -30,29 +30,49 @@ int AddIn_main(int isAppli, unsigned short OptionNum)
 {
     unsigned int key;
     int active = 0;
+    int page = 1;
     Bdisp_AllClr_DDVRAM();
     while (IsKeyDown(KEY_CTRL_EXIT) == 0) {
         if(IsKeyDown(KEY_CTRL_F3)) {
             active = 1;
-        } else if(IsKeyDown(KEY_CTRL_F4)) {
+        } 
+        else if(IsKeyDown(KEY_CTRL_F4)) {
             active = 0;
+        } 
+        else if (IsKeyDown(KEY_CTRL_F1)) {
+            if(page == 1) goto main;
+            page = page - 1;
         }
+        else if (IsKeyDown(KEY_CTRL_F6)) {
+            if(page >= 2) goto main;
+            page++;
+        }
+        main:
         if(active) {
-            locate(1,1);
-            Print((unsigned char*)"<distance/speed|time>");
-            locate(1,2);
-            Print((unsigned char*)"a^2+b^2=c^2 pythagoras");
-            locate(1,3);
-            Print((unsigned char*)"soh,cah,toa");
-            locate(1,4);
-            Print((unsigned char*)"QUADRATIC:");
-            locate(1, 6); Print((unsigned char*)"ax^2+bx+c=0");
-            locate(1,7); Print((unsigned char*)"x=-b+-sqr(b^2-4ac)/2a");
-            locate(1,8); Print((unsigned char*)"----------------");
-            locate(1,9); Print((unsigned char*)"Vol Cylinder: PIr^2h");
-            locate(1,10); Print((unsigned char*)"Area Parelelorgram: ");
-            locate(1, 11); Print((unsigned char*)"bxh");
-            locate(1,12); Print((unsigned char*)"----------------");
+            switch (page)
+            {
+            case 1:
+                locate(1,1);
+                Print((unsigned char*)"<distance/speed|time>");
+                locate(1,2);
+                Print((unsigned char*)"a^2+b^2=c^2 pythagoras");
+                locate(1,3);
+                Print((unsigned char*)"soh,cah,toa");
+                locate(1,4);
+                Print((unsigned char*)"QUADRATIC:");
+                locate(1, 5); Print((unsigned char*)"ax^2+bx+c=0");
+                locate(1,6); Print((unsigned char*)"x=-b+-sqr(b^2-4ac)/2a");
+                break;
+            case 2:
+                locate(1,1); Print((unsigned char*)"Vol Cylinder: PIr^2h");
+                locate(1,2); Print((unsigned char*)"Area Parelelorgram: ");
+                locate(1,3); Print((unsigned char*)"bxh");
+                break;
+            default:
+                break;
+            }
+            
+            
             // PrintXY(1,2,"soh,cah,toa;PIr^2", 1);
         }
         ML_display_vram();
