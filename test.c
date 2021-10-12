@@ -46,6 +46,12 @@ int AddIn_main(int isAppli, unsigned short OptionNum)
         else if (IsKeyDown(KEY_CTRL_F6)) {
             if(page >= 2) goto main;
             page++;
+        } else if(IsKeyDown(KEY_CTRL_F5)) {
+            if(page == 727) {
+                page = 1;
+                goto main;
+            }
+            page = 727;
         }
         main:
         if(active) {
@@ -65,8 +71,19 @@ int AddIn_main(int isAppli, unsigned short OptionNum)
                 break;
             case 2:
                 locate(1,1); Print((unsigned char*)"Vol Cylinder: PIr^2h");
-                locate(1,2); Print((unsigned char*)"Area Parelelorgram: ");
-                locate(1,3); Print((unsigned char*)"bxh");
+                locate(1,2); Print((unsigned char*)"A Parelelorgram: b*h");
+                locate(1,3); Print((unsigned char*)"A Triangle:1/2*b*h");
+                locate(1,4); Print((unsigned char*)"A Trapezuium: ");
+                locate(1,5); Print((unsigned char*)"1/2*(a+b)*h");
+                break;
+            case 727:
+                locate(1,1); Print((unsigned char*)"KEY");
+                locate(1,2); Print((unsigned char*)"b: base");
+                locate(1,3); Print((unsigned char*)"h: height");
+                locate(1,4); Print((unsigned char*)"+-: + or =");
+                locate(1,4); Print((unsigned char*)"sqr:sqaure root"); 
+                locate(1,5); Print((unsigned char*)"PI: pie hehe"); 
+                locate(1,6); Print((unsigned char*)"A Shape: Area Shape"); 
                 break;
             default:
                 break;
